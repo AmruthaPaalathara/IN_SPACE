@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="content" class="expanded">
+    <div class="container mt-5">
+        <div class="row justify-content-center" style="width: 700px;margin-left: 150px;">
+            <div class="form-box shadow-lg p-4 rounded">
+                <h2 class="text-center mb-4">Update Task</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="task_id" value="{{ task.id }}">
+                    
+                    <div class="mb-3">
+                        <label for="name" class="form-label form-floating">Task Name</label>
+                        <input type="text" id="name" name="project_name" required class="form-control" value="{{ task.task_name }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="problem" class="form-label">Problem Description</label>
+                        <input type="text" id="problem" name="problem" required class="form-control" value="{{ task.problem }}">
+                    </div>
+
+                    <div class="text-center">
+                        <input type="submit" value="Update" class="btn btn-lg w-35" style="background-color: #247084; color: white;width: fit-content;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

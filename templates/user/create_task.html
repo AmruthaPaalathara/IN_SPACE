@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="content" class="expanded">
+    <div class="container mt-5" style="width: 600px;">
+        <div class="row justify-content-center w-75">
+            <div class="form-box shadow-lg p-4 rounded">
+                <h2 class="text-center mb-4">Create New Task</h2>
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Task Name</label>
+                        <input type="text" id="name" name="project_name" required class="form-control" placeholder="Enter task name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="problem" class="form-label">Problem Description</label>
+                        <input type="text" id="problem" name="problem" required class="form-control" placeholder="Describe the problem">
+                    </div>
+
+                    <!-- Centering the submit button -->
+                    <div class="text-center">
+                        <input type="submit" value="Submit" class="btn btn-lg w-50" style="background-color: #247084; color: white;">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
